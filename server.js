@@ -44,7 +44,7 @@ jwt.verify(token, process.env.GATEWAY_JWT_SECRET, (err, decoded) => {
 //RATE LIMITER
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // limit each IP to 100 requests per windowMs
+    max: 5, // limit each IP to 100 requests per windowMs
     message: 'Too many requests from this IP, please try again later',
 });
 
@@ -68,7 +68,6 @@ function getCurrentDateTime() {
 
 
 //ROUTES
-
 //LOGISTICS TO FINANCE (BUDGET REQUEST)
 app.post('/logistics/request-budget', authenticateGatewayRequest, async (req, res) => {
     try {
