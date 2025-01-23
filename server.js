@@ -87,7 +87,7 @@ app.post('/logistics/request-budget', authenticateGatewayRequest, async (req, re
 app.post('/finance/update-budget-status', authenticateGatewayRequest, async (req, res) => {
     try {
       const token = generateServiceToken('Logistics1');
-      const response = await axios.put(`${process.env.LOGISTIC1_SERVICE_URL}/api/purchase-order/updateStatusFinance`, req.body, {
+      const response = await axios.post(`${process.env.LOGISTIC1_SERVICE_URL}/api/purchase-order/updateStatusFinance`, req.body, {
         headers: { Authorization: `Bearer ${token}` },
       });
       res.status(response.status).json(response.data);
