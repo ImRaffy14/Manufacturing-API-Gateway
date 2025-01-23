@@ -68,7 +68,7 @@ function getCurrentDateTime() {
 
 
 //ROUTES
-//LOGISTICS TO FINANCE (BUDGET REQUEST)
+//LOGISTICS1 TO FINANCE SERVICE (BUDGET REQUEST)
 app.post('/logistics/request-budget', authenticateGatewayRequest, async (req, res) => {
     try {
       const token = generateServiceToken('Finance');
@@ -76,12 +76,26 @@ app.post('/logistics/request-budget', authenticateGatewayRequest, async (req, re
         headers: { Authorization: `Bearer ${token}` },
       });
       res.status(response.status).json(response.data);
-      console.log(`[${getCurrentDateTime()}] Logistic 1 Requested on Finance Service`)
+      console.log(`[${getCurrentDateTime()}] Logistic 1 Requested to Finance Service`)
     } catch (error) {
       res.status(error.response?.status || 500).json({ error: error.message });
     }
   });
 
+
+//FINANCE TO LOGISTICS1 SERVICE (UPDATE STATUS)
+app.post('/finance/update-budget-status', authenticateGatewayRequest, async (req, res) => {
+    try {
+      const token = generateServiceToken('Logistics1');
+      const response = await axios.post(`${process.env.LOGISTIC1_SERVICE_URL}/api/purchase-order/updateStatusFinance`, req.body, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      res.status(response.status).json(response.data);
+      console.log(`[${getCurrentDateTime()}] Finance Requested to Logistics 1 Service`)
+    } catch (error) {
+      res.status(error.response?.status || 500).json({ error: error.message });
+    }
+  });
 
 //SERVER
 app.listen(process.env.PORT, () => {
