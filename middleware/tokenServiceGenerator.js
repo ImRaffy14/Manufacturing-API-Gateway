@@ -9,3 +9,4 @@ const generateServiceToken = (serviceName) => {
 module.exports = {
     generateServiceToken
 }
+

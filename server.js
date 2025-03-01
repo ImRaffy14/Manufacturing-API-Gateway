@@ -10,6 +10,7 @@ dotenv.config();
 
 // IMPORT ROUTERS
 const adminRoutes = require('./routes/adminRoutes')
+const financeRoutes = require('./routes/financeRoutes')
 
 // EXPRESS APP
 const app = express();
@@ -47,7 +48,7 @@ const authenticateGatewayRequest = (req, res, next) => {
 // RATE LIMITER
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // limit each IP to 100 requests per windowMs
+    max: 200, // limit each IP to 100 requests per windowMs
     message: 'Too many requests from this IP, please try again later',
 });
 
@@ -70,6 +71,7 @@ function getCurrentDateTime() {
 
 // ENDPOINTS 
 app.use('/admin', authenticateGatewayRequest, adminRoutes);
+app.use('/finance', authenticateGatewayRequest, financeRoutes)
 
 // // LOGISTICS1 TO FINANCE SERVICE (BUDGET REQUEST)
 // app.post('/logistics/request-budget', authenticateGatewayRequest, async (req, res) => {

@@ -18,7 +18,7 @@ const adminGetAccounts = async (req, res) => {
             const response = await axios.get(`${process.env.ADMIN_SERVICE_URL}/api/finance/get`,{
                 headers: { Authorization: `Bearer ${token}` },
             });
-            console.log(`[${getCurrentDateTime()}] ${server} Requested to Admin Service`);
+            console.log(`[${getCurrentDateTime()}] ${server} Requested to Admin Service (Get Accounts)`);
             res.status(response.status).json(response.data);
         }
         else if(server === "Logistic 1" || server === "Logistic 2"){
@@ -26,7 +26,7 @@ const adminGetAccounts = async (req, res) => {
             const response = await axios.get(`${process.env.ADMIN_SERVICE_URL}/api/logisticusers/get`,{
                 headers: { Authorization: `Bearer ${token}` },
             });
-            console.log(`[${getCurrentDateTime()}] ${server} Requested to Admin Service`);
+            console.log(`[${getCurrentDateTime()}] ${server} Requested to Admin Service (Get Accounts)`);
             res.status(response.status).json(response.data);
         }
         else if(server === "Core 1" || server === "Core 2"){
@@ -34,15 +34,15 @@ const adminGetAccounts = async (req, res) => {
             const response = await axios.get(`${process.env.ADMIN_SERVICE_URL}/api/coreusers/get`,{
                 headers: { Authorization: `Bearer ${token}` },
             });
-            console.log(`[${getCurrentDateTime()}] ${server} Requested to Admin Service`);
+            console.log(`[${getCurrentDateTime()}] ${server} Requested to Admin Service (Get Accounts)`);
             res.status(response.status).json(response.data);
         }
         else if(server === "Hr 1" || server === "Hr 2" || server === "Hr 3" || server === "Hr 4" ){
             const token = generateServiceToken(server);
-            const response = await axios.get(`${process.env.ADMIN_SERVICE_URL}/api/hrusers/get`,{
+            const response = await axios.get(`${process.env.ADMIN_SERVICE_URL}/api/hrusers/get (Get Accounts)`,{
                 headers: { Authorization: `Bearer ${token}` },
             });
-            console.log(`[${getCurrentDateTime()}] ${server} Requested to Admin Service`);
+            console.log(`[${getCurrentDateTime()}] ${server} Requested to Admin Service (Get Accounts)`);
             res.status(response.status).json(response.data);
         }
         else{
