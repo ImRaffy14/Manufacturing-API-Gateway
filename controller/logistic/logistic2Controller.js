@@ -15,7 +15,7 @@ const updatePurchaseOrder = async (req, res) => {
     const server = req.decoded.service
     try {
         const token = generateServiceToken(server);
-        const response = await axios.post(`${process.env.LOGISTIC_SERVICE_URL}/API/PURCHASE-ORDER/update`, req.body, {
+        const response = await axios.post(`${process.env.LOGISTIC2_SERVICE_URL}/API/PURCHASE-ORDER/update`, req.body, {
             headers: { Authorization: `Bearer ${token}` },
         });
         console.log(`[${getCurrentDateTime()}] ${server} Requested to Logistic 2 Service (Update Purchase Order)`);
@@ -31,7 +31,7 @@ const inventoryRecords = async (req, res) => {
     const server = req.decoded.service
     try {
         const token = generateServiceToken(server);
-        const response = await axios.post(`${process.env.LOGISTIC_SERVICE_URL}/api/inventoryrecords`, req.body, {
+        const response = await axios.post(`${process.env.LOGISTIC2_SERVICE_URL}/api/inventoryrecords`, req.body, {
             headers: { Authorization: `Bearer ${token}` },
         });
         console.log(`[${getCurrentDateTime()}] ${server} Requested to Logistic 2 Service (Sent Inventory Records)`);

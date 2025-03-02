@@ -14,6 +14,7 @@ const financeRoutes = require('./routes/financeRoutes')
 const hr1Routes = require('./routes/hr1Routes')
 const hr3Routes = require('./routes/hr3Routes')
 const logistic2Routes = require('./routes/logistic2Routes')
+const logistic1Routes = require('./routes/logistic1Routes')
 
 
 // EXPRESS APP
@@ -79,6 +80,7 @@ app.use('/finance', authenticateGatewayRequest, financeRoutes)
 app.use('/hr1', authenticateGatewayRequest, hr1Routes)
 app.use('/hr3', authenticateGatewayRequest, hr3Routes)
 app.use('/logistic2', authenticateGatewayRequest, logistic2Routes)
+app.use('/logistic1', authenticateGatewayRequest, logistic1Routes)
 
 
 // // LOGISTICS1 TO FINANCE SERVICE (BUDGET REQUEST)
