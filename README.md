@@ -39,6 +39,12 @@ URL: https://gateway.jjm-manufacturing.com/finance/update-purchase-order
 METHOD: POST
 ```
 
+##### Get Financial Reports
+```http
+URL: https://gateway.jjm-manufacturing.com/finance/get-financial-reports
+METHOD: Get
+```
+
 ##### -----------------------------------------------------------------------------------------------------------
 #### HR 1 SERVICE
 ##### Get Employee Records
