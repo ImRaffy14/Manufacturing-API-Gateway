@@ -91,3 +91,17 @@ METHOD: POST
 ```
 
 ##### -----------------------------------------------------------------------------------------------------------
+#### LOGISTIC 2 SERVICE
+##### Update Purchase Order for Finance
+```http
+URL: https://gateway.jjm-manufacturing.com/logistic2/purchase-order-update
+METHOD: POST
+```
+
+##### Send Inventory Records for Logistic 1
+```http
+URL: https://gateway.jjm-manufacturing.com/logistic2/receive-inventory-records
+METHOD: POST
+```
+
+##### -----------------------------------------------------------------------------------------------------------
