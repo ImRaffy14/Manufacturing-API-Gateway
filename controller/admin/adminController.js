@@ -51,6 +51,7 @@ const adminGetAccounts = async (req, res) => {
         
     } catch (error) {
         res.status(error.response?.status || 500).json({ error: error.message });
+        console.error(`Error Admin: ${error.message}`)
     }
 }
 
