@@ -40,5 +40,42 @@ METHOD: POST
 ```
 
 ##### -----------------------------------------------------------------------------------------------------------
+#### HR 1 SERVICE
+##### Get Employee Records
+```http
+URL: https://gateway.jjm-manufacturing.com/hr1/get-employee-records
+METHOD: GET
+```
 
+##### Get Time Tracking
+```http
+URL: https://gateway.jjm-manufacturing.com/hr1/get-time-tracking
+METHOD: GET
+```
+##### -----------------------------------------------------------------------------------------------------------
+#### HR 3 SERVICE
+##### Get Documents
+```http
+URL: https://gateway.jjm-manufacturing.com/hr3/get-documents
+METHOD: GET
+```
 
+##### Get Employee Violation
+```http
+URL: https://gateway.jjm-manufacturing.com/hr3/get-employee-violation
+METHOD: GET
+```
+
+##### Update Purchase Order Status
+```http
+URL: https://gateway.jjm-manufacturing.com/hr3/update-status-purchase-order
+METHOD: POST
+```
+
+##### Send Grievance for HR 4
+```http
+URL: https://gateway.jjm-manufacturing.com/hr3/receive-grievance
+METHOD: POST
+```
+
+##### -----------------------------------------------------------------------------------------------------------
