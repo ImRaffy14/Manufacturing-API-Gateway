@@ -39,7 +39,7 @@ const adminGetAccounts = async (req, res) => {
         }
         else if(server === "Hr 1" || server === "Hr 2" || server === "Hr 3" || server === "Hr 4" ){
             const token = generateServiceToken(server);
-            const response = await axios.get(`${process.env.ADMIN_SERVICE_URL}/api/hrusers/get (Get Accounts)`,{
+            const response = await axios.get(`${process.env.ADMIN_SERVICE_URL}/api/hrusers/get`,{
                 headers: { Authorization: `Bearer ${token}` },
             });
             console.log(`[${getCurrentDateTime()}] ${server} Requested to Admin Service (Get Accounts)`);
