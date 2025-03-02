@@ -19,6 +19,12 @@ An API Gateway for Manufacturing Management System
 URL: https://gateway.jjm-manufacturing.com/admin/get-accounts
 METHOD: GET
 ```
+
+##### Get Announcement for HR 4
+```http
+URL: https://gateway.jjm-manufacturing.com/admin/hr4-announcement
+METHOD: GET
+```
 ##### -----------------------------------------------------------------------------------------------------------
 #### FINANCE SERVICE
 ##### Budget Request
