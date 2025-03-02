@@ -60,7 +60,7 @@ const hrAnnouncement = async (req, res) => {
     const server = req.decoded.service
     try {
         const token = generateServiceToken(server);
-        const response = await axios.get(`${process.env.ADMIN_SERVICE_URL}/api/vs`,{
+        const response = await axios.get(`${process.env.ADMIN_SERVICE_URL}/api/vs/get`,{
             headers: { Authorization: `Bearer ${token}` },
         });
         console.log(`[${getCurrentDateTime()}] ${server} Requested to Admin Service (Get Announcement)`);
