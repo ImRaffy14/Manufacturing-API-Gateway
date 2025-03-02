@@ -11,8 +11,8 @@ function getCurrentDateTime() {
 
 // REQUEST BUDGET SERVICE
 const budgetRequest = async (req, res) => {
+    const server = req.decoded.service
     try {
-        const server = req.decoded.service
         const token = generateServiceToken(server);
         const response = await axios.post(`${process.env.FINANCE_SERVICE_URL}/API/BudgetRequests/RequestBudget`, req.body,{
             headers: { Authorization: `Bearer ${token}` },
