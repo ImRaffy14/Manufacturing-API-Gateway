@@ -11,6 +11,9 @@ dotenv.config();
 // IMPORT ROUTERS
 const adminRoutes = require('./routes/adminRoutes')
 const financeRoutes = require('./routes/financeRoutes')
+const hr1Routes = require('./routes/hr1Routes')
+const hr3Routes = require('./routes/hr3Routes')
+
 
 // EXPRESS APP
 const app = express();
@@ -72,6 +75,8 @@ function getCurrentDateTime() {
 // ENDPOINTS 
 app.use('/admin', authenticateGatewayRequest, adminRoutes);
 app.use('/finance', authenticateGatewayRequest, financeRoutes)
+app.use('/hr1', authenticateGatewayRequest, hr1Routes)
+app.use('/hr3', authenticateGatewayRequest, hr3Routes)
 
 // // LOGISTICS1 TO FINANCE SERVICE (BUDGET REQUEST)
 // app.post('/logistics/request-budget', authenticateGatewayRequest, async (req, res) => {

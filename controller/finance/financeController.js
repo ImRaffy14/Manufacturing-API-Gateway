@@ -21,13 +21,14 @@ const budgetRequest = async (req, res) => {
         res.status(response.status).json(response.data);
     } catch (error) {
         res.status(error.response?.status || 500).json({ error: error.message });
+        console.error(`Error Finance: Server:${server} ${error.message}`)
     }
 }
 
 // RECEIVE ORDER INFORMATION FROM CORE 2
 const orderInformation = async (req, res) => {
+    const server = req.decoded.service
     try {
-        const server = req.decoded.service
         const token = generateServiceToken(server);
         const response = await axios.post(`${process.env.FINANCE_SERVICE_URL}/API/ORDER/post`, req.body,{
             headers: { Authorization: `Bearer ${token}` },
@@ -36,13 +37,14 @@ const orderInformation = async (req, res) => {
         res.status(response.status).json(response.data);
     } catch (error) {
         res.status(error.response?.status || 500).json({ error: error.message });
+        console.error(`Error Finance: Server:${server} ${error.message}`)
     }
 }
 
 // UPDATE PURCHASE ORDER STATUS
 const updatePurchaseOrder = async (req, res) => {
+    const server = req.decoded.service
     try {
-        const server = req.decoded.service
         const token = generateServiceToken(server);
         const response = await axios.post(`${process.env.FINANCE_SERVICE_URL}/API/PURCHASE-ORDER/update`, req.body,{
             headers: { Authorization: `Bearer ${token}` },
@@ -51,6 +53,7 @@ const updatePurchaseOrder = async (req, res) => {
         res.status(response.status).json(response.data);
     } catch (error) {
         res.status(error.response?.status || 500).json({ error: error.message });
+        console.error(`Error Finance: Server:${server} ${error.message}`)
     }
 }
 
