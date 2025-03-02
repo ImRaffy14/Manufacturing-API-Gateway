@@ -1,7 +1,9 @@
 const express = require('express')
-const { budgetRequest, orderInformation, updatePurchaseOrder } = require('../controller/finance/financeController')
+const { budgetRequest, orderInformation, updatePurchaseOrder, getFinancialReports } = require('../controller/finance/financeController')
 
 const router = express.Router()
+// GET FINANCIAL REPORTS
+router.get('/get-financial-reports', getFinancialReports)
 
 // BUDGET REQUEST
 router.post('/budget-request', budgetRequest)

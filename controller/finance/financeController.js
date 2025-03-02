@@ -57,9 +57,26 @@ const updatePurchaseOrder = async (req, res) => {
     }
 }
 
+// GET FINANCIAL REPORTS
+const getFinancialReports = async (req, res) => {
+    const server = req.decoded.service
+    try {
+        const token = generateServiceToken(server);
+        const response = await axios.get(`${process.env.FINANCE_SERVICE_URL}/integrate/get-financial-reports`,{
+            headers: { Authorization: `Bearer ${token}` },
+        });
+        console.log(`[${getCurrentDateTime()}] ${server} Requested to Finance Service (Get Financial Report)`);
+        res.status(response.status).json(response.data);
+    } catch (error) {
+        res.status(error.response?.status || 500).json({ error: error.message });
+        console.error(`Error Finance: Server:${server} ${error.message}`)
+    }
+}
+
 
 module.exports = {
     budgetRequest,
     orderInformation,
-    updatePurchaseOrder
+    updatePurchaseOrder,
+    getFinancialReports
 }
