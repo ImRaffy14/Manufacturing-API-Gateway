@@ -105,3 +105,21 @@ METHOD: POST
 ```
 
 ##### -----------------------------------------------------------------------------------------------------------
+#### LOGISTIC 1 SERVICE
+##### Request Raw Material
+```http
+URL: https://gateway.jjm-manufacturing.com/logistic1/request-raw-material
+METHOD: POST
+```
+
+##### Update Budget Request Status
+```http
+URL: https://gateway.jjm-manufacturing.com/logistic1/update-budget-req-status
+METHOD: POST
+```
+
+##### Quality Control From Logistic 2
+```http
+URL: https://gateway.jjm-manufacturing.com/logistic1/qc-inspection
+METHOD: POST
+```
