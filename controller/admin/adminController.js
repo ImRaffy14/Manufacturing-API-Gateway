@@ -73,5 +73,6 @@ const hrAnnouncement = async (req, res) => {
 }
 
 module.exports = {
-    adminGetAccounts
+    adminGetAccounts,
+    hrAnnouncement
 }
