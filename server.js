@@ -13,6 +13,7 @@ const adminRoutes = require('./routes/adminRoutes')
 const financeRoutes = require('./routes/financeRoutes')
 const hr1Routes = require('./routes/hr1Routes')
 const hr3Routes = require('./routes/hr3Routes')
+const logistic2Routes = require('./routes/logistic2Routes')
 
 
 // EXPRESS APP
@@ -77,6 +78,8 @@ app.use('/admin', authenticateGatewayRequest, adminRoutes);
 app.use('/finance', authenticateGatewayRequest, financeRoutes)
 app.use('/hr1', authenticateGatewayRequest, hr1Routes)
 app.use('/hr3', authenticateGatewayRequest, hr3Routes)
+app.use('/logistic2', authenticateGatewayRequest, logistic2Routes)
+
 
 // // LOGISTICS1 TO FINANCE SERVICE (BUDGET REQUEST)
 // app.post('/logistics/request-budget', authenticateGatewayRequest, async (req, res) => {
