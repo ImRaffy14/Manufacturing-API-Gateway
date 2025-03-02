@@ -3,6 +3,7 @@ const { getDocument, getEmployeeViolation, updateStatus, receiveGrievance } = re
 
 const router = express.Router()
 
+
 // GET DOCUMENTS
 router.get('/get-documents', getDocument)
 
