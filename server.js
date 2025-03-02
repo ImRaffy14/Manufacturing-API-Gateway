@@ -28,11 +28,6 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-// GENERATE SERVICE TOKEN
-const generateServiceToken = (serviceName) => {
-    const payload = { service: serviceName };
-    return jwt.sign(payload, process.env.SERVICE_JWT_SECRET, { expiresIn: '10m' });
-};
 
 // AUTHENTICATES INCOMING REQUESTS
 const authenticateGatewayRequest = (req, res, next) => {
@@ -83,33 +78,6 @@ app.use('/logistic2', authenticateGatewayRequest, logistic2Routes)
 app.use('/logistic1', authenticateGatewayRequest, logistic1Routes)
 
 
-// // LOGISTICS1 TO FINANCE SERVICE (BUDGET REQUEST)
-// app.post('/logistics/request-budget', authenticateGatewayRequest, async (req, res) => {
-//   try {
-//       const token = generateServiceToken('Finance');
-//       const response = await axios.post(`${process.env.FINANCE_SERVICE_URL}/API/BudgetRequests/RequestBudget`, req.body, {
-//           headers: { Authorization: `Bearer ${token}` },
-//       });
-//       res.status(response.status).json(response.data);
-//       console.log(`[${getCurrentDateTime()}] Logistic 1 Requested to Finance Service`);
-//   } catch (error) {
-//       res.status(error.response?.status || 500).json({ error: error.message });
-//   }
-// });
-
-// // FINANCE TO LOGISTICS1 SERVICE (UPDATE STATUS)
-// app.post('/finance/update-budget-status', authenticateGatewayRequest, async (req, res) => {
-//   try {
-//       const token = generateServiceToken('Logistics1');
-//       const response = await axios.post(`${process.env.LOGISTIC1_SERVICE_URL}/api/purchase-order/updateStatusFinance`, req.body, {
-//           headers: { Authorization: `Bearer ${token}` },
-//       });
-//       res.status(response.status).json(response.data);
-//       console.log(`[${getCurrentDateTime()}] Finance Requested to Logistics 1 Service`);
-//   } catch (error) {
-//       res.status(error.response?.status || 500).json({ error: error.message });
-//   }
-// });
 
 // SERVER
 app.listen(process.env.PORT, () => {
