@@ -11,8 +11,8 @@ function getCurrentDateTime() {
 
 // GET ACCOUNTS
 const adminGetAccounts = async (req, res) => {
+    const server = req.decoded.service
     try {
-        const server = req.decoded.service
         if(server === "Finance"){
             const token = generateServiceToken(server);
             const response = await axios.get(`${process.env.ADMIN_SERVICE_URL}/api/finance/get`,{
@@ -51,7 +51,7 @@ const adminGetAccounts = async (req, res) => {
         
     } catch (error) {
         res.status(error.response?.status || 500).json({ error: error.message });
-        console.error(`Error Admin: ${error.message}`)
+        console.error(`Error Admin: Server:${server} ${error.message}`)
     }
 }
 
