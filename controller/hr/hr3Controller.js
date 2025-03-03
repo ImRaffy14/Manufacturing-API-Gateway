@@ -50,7 +50,7 @@ const updateStatus = async (req, res) => {
         const response = await axios.post(`${process.env.HR3_SERVICE_URL}/api/integration/updateStatusFinance`, req.body,{
             headers: { Authorization: `Bearer ${token}` },
         });
-        console.log(`[${getCurrentDateTime()}] ${server} Requested to HR 3 Service (Updates the status of purchase order)`);
+        console.log(`[${getCurrentDateTime()}] ${server} Requested to HR 3 Service (Updates the status of Budget Request)`);
         res.status(response.status).json(response.data);
     } catch (error) {
         res.status(error.response?.status || 500).json({ error: error.message });
