@@ -90,6 +90,12 @@ URL: https://gateway.jjm-manufacturing.com/hr3/receive-grievance
 METHOD: POST
 ```
 
+##### Get Employee Incentives for HR 2
+```http
+URL: https://gateway.jjm-manufacturing.com/hr3/get-incentive-employee
+METHOD: GET
+```
+
 ##### -----------------------------------------------------------------------------------------------------------
 #### LOGISTIC 2 SERVICE
 ##### Update Purchase Order for Finance
