@@ -16,6 +16,7 @@ const hr2Routes = require('./routes/hr2Routes')
 const hr3Routes = require('./routes/hr3Routes')
 const logistic2Routes = require('./routes/logistic2Routes')
 const logistic1Routes = require('./routes/logistic1Routes')
+const core1Routes = require('./routes/core1Routes')
 
 
 // EXPRESS APP
@@ -78,6 +79,7 @@ app.use('/hr3', authenticateGatewayRequest, hr3Routes)
 app.use('/logistic2', authenticateGatewayRequest, logistic2Routes)
 app.use('/logistic1', authenticateGatewayRequest, logistic1Routes)
 app.use('/hr2', authenticateGatewayRequest, hr2Routes)
+app.use('/core1', authenticateGatewayRequest, core1Routes)
 
 
 
