@@ -42,7 +42,24 @@ const timeTracking = async (req, res) => {
     }
 }
 
+// GET APPROVED LEAVES
+const getApprovedLeaves = async (req, res) => {
+    const server = req.decoded.service
+    try {
+        const token = generateServiceToken(server);
+        const response = await axios.get(`${process.env.HR1_SERVICE_URL}/api/leave/get-approved-leaves`,{
+            headers: { Authorization: `Bearer ${token}` },
+        });
+        console.log(`[${getCurrentDateTime()}] ${server} Requested to HR 1 Service (Get Approved Leaves)`);
+        res.status(response.status).json(response.data);
+    } catch (error) {
+        res.status(error.response?.status || 500).json({ error: error.message });
+        console.error(`Error Hr 1: Server:${server} ${error.message}`)
+    }
+}
+
 module.exports = {
     getEmployeeRecords,
-    timeTracking
+    timeTracking,
+    getApprovedLeaves
 }
