@@ -64,6 +64,13 @@ METHOD: GET
 URL: https://gateway.jjm-manufacturing.com/hr1/get-time-tracking
 METHOD: GET
 ```
+
+##### Get Approved Leaves
+```http
+URL: https://gateway.jjm-manufacturing.com/hr1/get-approved-leaves
+METHOD: GET
+```
+
 ##### -----------------------------------------------------------------------------------------------------------
 #### HR 3 SERVICE
 ##### Get Documents
