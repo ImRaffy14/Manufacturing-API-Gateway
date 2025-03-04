@@ -74,9 +74,26 @@ const receiveGrievance = async (req, res) => {
     }
 }
 
+// GET INCENTIVE EMPLOYEE
+const getIncentiveEmployee = async (req, res) => {
+    const server = req.decoded.service
+    try {
+        const token = generateServiceToken(server);
+        const response = await axios.get(`${process.env.HR3_SERVICE_URL}/api/incentive/get-all-employee-incentive-details`,{
+            headers: { Authorization: `Bearer ${token}` },
+        });
+        console.log(`[${getCurrentDateTime()}] ${server} Requested to HR 3 Service (Get Incentive Employee)`);
+        res.status(response.status).json(response.data);
+    } catch (error) {
+        res.status(error.response?.status || 500).json({ error: error.message });
+        console.error(`Error Hr 3: Server:${server} ${error.message}`)
+    }
+}
+
 module.exports = {
     getDocument,
     getEmployeeViolation,
     updateStatus,
-    receiveGrievance
+    receiveGrievance,
+    getIncentiveEmployee
 }
