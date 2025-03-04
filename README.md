@@ -72,6 +72,21 @@ METHOD: GET
 ```
 
 ##### -----------------------------------------------------------------------------------------------------------
+#### HR 2 SERVICE
+##### Get Employee Records for HR 1
+```http
+URL: https://gateway.jjm-manufacturing.com/hr2/api/employees
+METHOD: GET
+```
+
+##### Get Employee Training Records for HR 4
+```http
+URL: https://gateway.jjm-manufacturing.com/hr2/api/employees
+METHOD: GET
+```
+
+
+##### -----------------------------------------------------------------------------------------------------------
 #### HR 3 SERVICE
 ##### Get Documents
 ```http
