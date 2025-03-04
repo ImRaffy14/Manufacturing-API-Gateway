@@ -12,6 +12,7 @@ dotenv.config();
 const adminRoutes = require('./routes/adminRoutes')
 const financeRoutes = require('./routes/financeRoutes')
 const hr1Routes = require('./routes/hr1Routes')
+const hr2Routes = require('./routes/hr2Routes')
 const hr3Routes = require('./routes/hr3Routes')
 const logistic2Routes = require('./routes/logistic2Routes')
 const logistic1Routes = require('./routes/logistic1Routes')
@@ -76,6 +77,7 @@ app.use('/hr1', authenticateGatewayRequest, hr1Routes)
 app.use('/hr3', authenticateGatewayRequest, hr3Routes)
 app.use('/logistic2', authenticateGatewayRequest, logistic2Routes)
 app.use('/logistic1', authenticateGatewayRequest, logistic1Routes)
+app.use('/hr2', authenticateGatewayRequest, hr2Routes)
 
 
 
