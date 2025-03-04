@@ -151,3 +151,11 @@ METHOD: POST
 URL: https://gateway.jjm-manufacturing.com/logistic1/qc-inspection
 METHOD: POST
 ```
+
+##### -----------------------------------------------------------------------------------------------------------
+#### CORE 1 SERVICE
+##### Get Work Orders
+```http
+URL: https://gateway.jjm-manufacturing.com/core1/api/workOrders
+METHOD: GET
+```
