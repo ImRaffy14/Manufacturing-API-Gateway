@@ -165,3 +165,10 @@ METHOD: POST
 URL: https://gateway.jjm-manufacturing.com/core1/api/workOrders
 METHOD: GET
 ```
+##### Send Order Information
+```http
+URL: https://gateway.jjm-manufacturing.com/core1/api/order
+METHOD: POST
+```
+##### -----------------------------------------------------------------------------------------------------------
+#### CORE 2 SERVICE
