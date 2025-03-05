@@ -1,5 +1,5 @@
 const express = require('express')
-const { getWorkOrders } = require('../controller/core/core1Controller')
+const { sendFinishProduct } = require('../controller/core/core2Controller')
 
 const router = express.Router()
 
