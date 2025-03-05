@@ -106,12 +106,6 @@ URL: https://gateway.jjm-manufacturing.com/hr3/update-status-purchase-order
 METHOD: POST
 ```
 
-##### Send Grievance for HR 4
-```http
-URL: https://gateway.jjm-manufacturing.com/hr3/receive-grievance
-METHOD: POST
-```
-
 ##### Get Employee Incentives for HR 2
 ```http
 URL: https://gateway.jjm-manufacturing.com/hr3/get-incentive-employee
@@ -123,12 +117,6 @@ METHOD: GET
 ##### Update Purchase Order for Finance
 ```http
 URL: https://gateway.jjm-manufacturing.com/logistic2/purchase-order-update
-METHOD: POST
-```
-
-##### Send Inventory Records for Logistic 1
-```http
-URL: https://gateway.jjm-manufacturing.com/logistic2/receive-inventory-records
 METHOD: POST
 ```
 
@@ -146,12 +134,6 @@ URL: https://gateway.jjm-manufacturing.com/logistic1/update-budget-req-status
 METHOD: POST
 ```
 
-##### Quality Control From Logistic 2
-```http
-URL: https://gateway.jjm-manufacturing.com/logistic1/qc-inspection
-METHOD: POST
-```
-
 ##### -----------------------------------------------------------------------------------------------------------
 #### CORE 1 SERVICE
 ##### Get Work Orders
@@ -165,4 +147,16 @@ URL: https://gateway.jjm-manufacturing.com/core1/api/order
 METHOD: POST
 ```
 ##### -----------------------------------------------------------------------------------------------------------
-#### CORE 2 SERVICE
+#### HR 4 SERVICE
+
+##### Get Grievance to Complaint
+```http
+URL: https://gateway.jjm-manufacturing.com/hr4/api/EmComplaint
+METHOD: GET
+```
+
+##### Get Grievance to Complaint
+```http
+URL: https://gateway.jjm-manufacturing.com/hr4/api/budget-requests/updateStatusFinance
+METHOD: POST
+```
