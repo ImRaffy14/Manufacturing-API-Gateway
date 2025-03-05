@@ -71,12 +71,6 @@ URL: https://gateway.jjm-manufacturing.com/hr1/get-approved-leaves
 METHOD: GET
 ```
 
-##### Get Hired Employees for Admin
-```http
-URL: https://gateway.jjm-manufacturing.com/hr1/get-hired-employees
-METHOD: GET
-```
-
 ##### -----------------------------------------------------------------------------------------------------------
 #### HR 2 SERVICE
 ##### Get Employee Records for HR 1
@@ -165,3 +159,10 @@ METHOD: POST
 URL: https://gateway.jjm-manufacturing.com/core1/api/workOrders
 METHOD: GET
 ```
+##### Send Order Information
+```http
+URL: https://gateway.jjm-manufacturing.com/core1/api/order
+METHOD: POST
+```
+##### -----------------------------------------------------------------------------------------------------------
+#### CORE 2 SERVICE
