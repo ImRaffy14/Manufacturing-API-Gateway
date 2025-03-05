@@ -1,5 +1,5 @@
 const express = require('express')
-const { getDocument, getEmployeeViolation, updateStatus, receiveGrievance, getIncentiveEmployee } = require('../controller/hr/hr3Controller')
+const { getDocument, getEmployeeViolation, updateStatus, getIncentiveEmployee } = require('../controller/hr/hr3Controller')
 
 const router = express.Router()
 
@@ -13,10 +13,8 @@ router.get('/get-employee-violation', getEmployeeViolation)
 // TO UPDATE STATUS FROM FINANCE
 router.post('/update-status-purchase-order', updateStatus)
 
-// RECEIVE GRIEVANCE
-router.post('/receive-grievance', receiveGrievance)
-
 // GET EMPLOYEE INCENTIVES
 router.get('/get-incentive-employee', getIncentiveEmployee)
+
 
 module.exports = router

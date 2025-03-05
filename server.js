@@ -18,13 +18,14 @@ const logistic2Routes = require('./routes/logistic2Routes')
 const logistic1Routes = require('./routes/logistic1Routes')
 const core1Routes = require('./routes/core1Routes')
 const core2Routes = require('./routes/core2Routes')
+const hr4Routes = require('./routes/hr4Routes')
 
 
 // EXPRESS APP
 const app = express();
 
 // Enable trust proxy to handle X-Forwarded-For header
-app.set('trust proxy', 1);  // Trust first proxy
+app.set('trust proxy', 1);
 
 // SECURITY MIDDLEWARES
 app.use(helmet());
@@ -82,6 +83,7 @@ app.use('/logistic1', authenticateGatewayRequest, logistic1Routes)
 app.use('/hr2', authenticateGatewayRequest, hr2Routes)
 app.use('/core1', authenticateGatewayRequest, core1Routes)
 app.use('/core2', authenticateGatewayRequest, core2Routes)
+app.use('/hr4', authenticateGatewayRequest, hr4Routes)
 
 
 
