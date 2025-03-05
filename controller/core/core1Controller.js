@@ -25,6 +25,23 @@ const getWorkOrders = async (req, res) => {
     }
 }
 
+// TO RECEIVE ORDER INFORMATION
+const receiveOrderInformation = async (req, res) => {
+    const server = req.decoded.service
+    try {
+        const token = generateServiceToken(server);
+        const response = await axios.post(`${process.env.CORE1_SERVICE_URL}/api/order`, req.body, {
+            headers: { Authorization: `Bearer ${token}` },
+        });
+        console.log(`[${getCurrentDateTime()}] ${server} Requested to Core 1 Service (Receive Order Information)`);
+        res.status(response.status).json(response.data);
+    } catch (error) {
+        res.status(error.response?.status || 500).json({ error: error.message });
+        console.error(`Error Core 1: Server:${server} ${error.message}`)
+    }
+}
+
 module.exports = {
-    getWorkOrders
+    getWorkOrders,
+    receiveOrderInformation
 }
