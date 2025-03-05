@@ -8,6 +8,6 @@ const router = express.Router()
 router.get('/EmComplaint', getGrievances)
 
 // UPDATE BUDGET REQUEST STATUS
-router.put('/api/budget-requests/updateStatusFinance', updateBudgetRequestStatus)
+router.post('/api/budget-requests/updateStatusFinance', updateBudgetRequestStatus)
 
 module.exports = router
