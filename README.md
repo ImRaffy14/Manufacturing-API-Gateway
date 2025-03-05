@@ -151,7 +151,7 @@ METHOD: POST
 
 ##### Get Grievance to Complaint
 ```http
-URL: https://gateway.jjm-manufacturing.com/hr4/api/EmComplaint
+URL: https://gateway.jjm-manufacturing.com/hr4/EmComplaint
 METHOD: GET
 ```
 
