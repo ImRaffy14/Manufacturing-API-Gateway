@@ -71,6 +71,12 @@ URL: https://gateway.jjm-manufacturing.com/hr1/get-approved-leaves
 METHOD: GET
 ```
 
+##### Get Hired Employees for Admin
+```http
+URL: https://gateway.jjm-manufacturing.com/hr1/get-hired-employees
+METHOD: GET
+```
+
 ##### -----------------------------------------------------------------------------------------------------------
 #### HR 2 SERVICE
 ##### Get Employee Records for HR 1
