@@ -1,5 +1,5 @@
 const express = require('express')
-const { getEmployeeRecords, timeTracking, getApprovedLeaves } = require('../controller/hr/hr1Controller')
+const { getEmployeeRecords, timeTracking, getApprovedLeaves, getHiredEmployees } = require('../controller/hr/hr1Controller')
 
 
 const router = express.Router()
@@ -12,5 +12,8 @@ router.get('/get-time-tracking', timeTracking)
 
 // GET APPROVED LEAVES
 router.get('/get-approved-leaves', getApprovedLeaves)
+
+// GET HIRED EMPLOYEE
+router.get('/get-hired-employees', getHiredEmployees)
 
 module.exports = router
