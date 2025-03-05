@@ -26,25 +26,6 @@ const updatePurchaseOrder = async (req, res) => {
     }
 }
 
-// // TO RECEIVE INVENTORY RECORDS
-// const inventoryRecords = async (req, res) => {
-//     const server = req.decoded.service
-//     try {
-//         const token = generateServiceToken(server);
-//         const response = await axios.post(`${process.env.LOGISTIC2_SERVICE_URL}/api/inventoryrecords`, req.body, {
-//             headers: { Authorization: `Bearer ${token}` },
-//         });
-//         console.log(`[${getCurrentDateTime()}] ${server} Requested to Logistic 2 Service (Sent Inventory Records)`);
-//         res.status(response.status).json(response.data);
-//     } catch (error) {
-//         res.status(error.response?.status || 500).json({ error: error.message });
-//         console.error(`Error Logistic 2: Server:${server} ${error.message}`)
-//     }
-// }
-
-
-
 module.exports = {
     updatePurchaseOrder,
-    inventoryRecords
 }
