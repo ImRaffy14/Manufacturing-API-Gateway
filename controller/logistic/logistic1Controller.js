@@ -62,7 +62,7 @@ const sendDiscrepancyReport = async (req, res) => {
     const server = req.decoded.service
     try {
         const token = generateServiceToken(server);
-        const response = await axios.post(`${process.env.LOGISTIC1_SERVICE_URL}/api/qualityControl/qc-inspections`, req.body, {
+        const response = await axios.post(`${process.env.LOGISTIC1_SERVICE_URL}/api/qualityControl/defected`, req.body, {
             headers: { Authorization: `Bearer ${token}` },
         });
         console.log(`[${getCurrentDateTime()}] ${server} Requested to Logistic 1 Service (Sent Discrepancy Report)`);
