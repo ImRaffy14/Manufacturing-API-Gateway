@@ -134,6 +134,12 @@ URL: https://gateway.jjm-manufacturing.com/logistic1/update-budget-req-status
 METHOD: POST
 ```
 
+##### Send Descripancy Report for Core 2
+```http
+URL: https://gateway.jjm-manufacturing.com/logistic1/send-discrepancy-report
+METHOD: POST
+```
+
 ##### -----------------------------------------------------------------------------------------------------------
 #### CORE 1 SERVICE
 ##### Get Work Orders
@@ -158,5 +164,13 @@ METHOD: GET
 ##### Update Status for Finance
 ```http
 URL: https://gateway.jjm-manufacturing.com/hr4/api/budget-requests/updateStatusFinance
+METHOD: POST
+```
+
+##### -----------------------------------------------------------------------------------------------------------
+#### CORE 2 SERVICE
+##### Send Raw Materials for Logistic 1
+```http
+URL: https://gateway.jjm-manufacturing.com/core2/send-raw-materials
 METHOD: POST
 ```
