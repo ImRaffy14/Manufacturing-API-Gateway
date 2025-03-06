@@ -1,5 +1,5 @@
 const express = require('express')
-const { requestRawMaterial, updateStatus, qcInspection } = require('../controller/logistic/logistic1Controller')
+const { requestRawMaterial, updateStatus, qcInspection, sendDiscrepancyReport } = require('../controller/logistic/logistic1Controller')
 
 const router = express.Router()
 
@@ -11,5 +11,8 @@ router.post('/update-budget-req-status', updateStatus)
 
 // QUALITY CONTROL FROM LOGISTIC 2
 router.post('/qc-inspection', qcInspection)
+
+// SEND DESCRIPANCY REPORT
+router.post('/send-discrepancy-report', sendDiscrepancyReport)
 
 module.exports = router

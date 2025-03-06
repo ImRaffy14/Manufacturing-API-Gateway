@@ -57,9 +57,26 @@ const qcInspection = async (req, res) => {
     }
 }
 
+// SEND DESCEPANCY REPORT
+const sendDiscrepancyReport = async (req, res) => {
+    const server = req.decoded.service
+    try {
+        const token = generateServiceToken(server);
+        const response = await axios.post(`${process.env.LOGISTIC1_SERVICE_URL}/api/qualityControl/qc-inspections`, req.body, {
+            headers: { Authorization: `Bearer ${token}` },
+        });
+        console.log(`[${getCurrentDateTime()}] ${server} Requested to Logistic 1 Service (Sent Discrepancy Report)`);
+        res.status(response.status).json(response.data);
+    } catch (error) {
+        res.status(error.response?.status || 500).json({ error: error.message });
+        console.error(`Error Logistic 1: Server:${server} ${error.message}`)
+    }
+}
+
 
 module.exports = {
     requestRawMaterial,
     updateStatus,
-    qcInspection
+    qcInspection,
+    sendDiscrepancyReport
 }
