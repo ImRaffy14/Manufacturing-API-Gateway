@@ -174,3 +174,9 @@ METHOD: POST
 URL: https://gateway.jjm-manufacturing.com/core2/send-raw-materials
 METHOD: POST
 ```
+
+##### Update Raw Materials
+```http
+URL: https://gateway.jjm-manufacturing.com/core2/update-raw-material-status
+METHOD: POST
+```
