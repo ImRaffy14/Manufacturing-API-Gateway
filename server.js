@@ -29,7 +29,11 @@ app.set('trust proxy', 1);
 
 // SECURITY MIDDLEWARES
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+    origin: '',
+    methods: ['GET', 'POST',],
+    }
+));
 app.use(express.json());
 
 
