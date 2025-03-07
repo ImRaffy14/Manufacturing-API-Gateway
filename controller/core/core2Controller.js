@@ -25,7 +25,23 @@ const sendRawMaterials = async (req, res) => {
     }
 }
 
+// UPDATE RAW MATERIAL STATUS
+const updateRawMaterialStatus = async (req, res) => {
+    const server = req.decoded.service
+    try {
+        const token = generateServiceToken(server);
+        const response = await axios.post(`${process.env.CORE2_SERVICE_URL}/api/rawMaterialRequest/update`, req.body, {
+            headers: { Authorization: `Bearer ${token}` },
+        });
+        console.log(`[${getCurrentDateTime()}] ${server} Requested to Logistic 1 Service (Update Raw Material Status)`);
+        res.status(response.status).json(response.data); 
+    } catch (error) {
+        res.status(error.response?.status || 500).json({ error: error.message });
+        console.error(`Error Core 2: Server:${server} ${error.message}`)
+    }
+}
 
 module.exports = {
-    sendRawMaterials
+    sendRawMaterials,
+    updateRawMaterialStatus
 }
