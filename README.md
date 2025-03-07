@@ -81,7 +81,7 @@ METHOD: GET
 
 ##### Get Employee Training Records for HR 4
 ```http
-URL: https://gateway.jjm-manufacturing.com/hr2/api/employees
+URL: https://gateway.jjm-manufacturing.com/hr2/api/trainings
 METHOD: GET
 ```
 
