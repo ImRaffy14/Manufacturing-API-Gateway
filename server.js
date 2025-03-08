@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const helmet = require('helmet');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
+const fs = require("fs");
 
 dotenv.config();
 
@@ -36,6 +37,28 @@ app.use(cors({
 ));
 app.use(express.json());
 
+// LOGGING IPS
+const blockedIPs = new Set(process.env.BLOCKED_IPS ? process.env.BLOCKED_IPS.split(",") : []);
+
+app.use((req, res, next) => {
+    const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+    console.log(`IP Address: ${ip} - ${new Date().toISOString()}`);
+    
+    if (blockedIPs.has(ip)) {
+        console.warn(`❌ BLOCKED REQUEST from IP: ${ip}`);
+        return res.status(403).json({ message: "Access Denied: Your IP is blocked." });
+    }
+
+    next();
+});
+
+const logSpammerIP = (ip) => {
+    const logMessage = `SPAM DETECTED: ${ip} - ${new Date().toISOString()}\n`;
+    
+    fs.appendFileSync("spammer.log", logMessage);
+
+    console.warn(`⚠️ IP Logged as Spammer: ${ip}`);
+};
 
 // AUTHENTICATES INCOMING REQUESTS
 const authenticateGatewayRequest = (req, res, next) => {
@@ -55,9 +78,13 @@ const authenticateGatewayRequest = (req, res, next) => {
 
 // RATE LIMITER
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 50, // limit each IP to 100 requests per windowMs
-    message: 'Too many requests from this IP, please try again later',
+    windowMs: 1 * 60 * 1000, 
+    max: 10, 
+    handler: (req, res) => {
+        const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+        logSpammerIP(ip);
+        return res.status(429).json({ message: "Too many requests, slow down!" });
+    },
 });
 
 app.use(limiter);
@@ -75,7 +102,6 @@ function getCurrentDateTime() {
     return `${date} ${time}`;
 }
 
-// ROUTES
 
 // ENDPOINTS 
 app.use('/admin', authenticateGatewayRequest, adminRoutes);
