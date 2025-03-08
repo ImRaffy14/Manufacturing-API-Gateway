@@ -81,7 +81,7 @@ METHOD: GET
 
 ##### Get Employee Training Records for HR 4
 ```http
-URL: https://gateway.jjm-manufacturing.com/hr2/api/employees
+URL: https://gateway.jjm-manufacturing.com/hr2/api/trainings
 METHOD: GET
 ```
 
@@ -172,5 +172,11 @@ METHOD: POST
 ##### Send Raw Materials for Logistic 1
 ```http
 URL: https://gateway.jjm-manufacturing.com/core2/send-raw-materials
+METHOD: POST
+```
+
+##### Update Raw Materials
+```http
+URL: https://gateway.jjm-manufacturing.com/core2/update-raw-material-status
 METHOD: POST
 ```
