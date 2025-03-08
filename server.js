@@ -41,9 +41,14 @@ app.use(express.json());
 const blockedIPs = new Set(process.env.BLOCKED_IPS ? process.env.BLOCKED_IPS.split(",") : []);
 
 app.use((req, res, next) => {
-    const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
-    console.log(`IP Address: ${ip} - ${new Date().toISOString()}`);
-    
+    let ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+
+    if (ip.includes(",")) {
+        ip = ip.split(",")[0].trim();
+    }
+
+    console.log(`Client IP: ${ip} - ${new Date().toISOString()}`);
+
     if (blockedIPs.has(ip)) {
         console.warn(`❌ BLOCKED REQUEST from IP: ${ip}`);
         return res.status(403).json({ message: "Access Denied: Your IP is blocked." });
@@ -51,6 +56,7 @@ app.use((req, res, next) => {
 
     next();
 });
+
 
 const logSpammerIP = (ip) => {
     const logMessage = `SPAM DETECTED: ${ip} - ${new Date().toISOString()}\n`;
@@ -78,10 +84,15 @@ const authenticateGatewayRequest = (req, res, next) => {
 
 // RATE LIMITER
 const limiter = rateLimit({
-    windowMs: 1 * 60 * 1000, 
-    max: 10, 
+    windowMs: 1 * 60 * 1000,
+    max: 10,
     handler: (req, res) => {
-        const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+        let ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+
+        if (ip.includes(",")) {
+            ip = ip.split(",")[0].trim();
+        }
+
         logSpammerIP(ip);
         return res.status(429).json({ message: "Too many requests, slow down!" });
     },
