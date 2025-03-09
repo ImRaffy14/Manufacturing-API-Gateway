@@ -120,6 +120,12 @@ URL: https://gateway.jjm-manufacturing.com/logistic2/purchase-order-update
 METHOD: POST
 ```
 
+##### Transfer Products
+```http
+URL: https://gateway.jjm-manufacturing.com/logistic2/transfer-products
+METHOD: POST
+```
+
 ##### -----------------------------------------------------------------------------------------------------------
 #### LOGISTIC 1 SERVICE
 ##### Request Raw Material
@@ -178,5 +184,11 @@ METHOD: POST
 ##### Update Raw Materials
 ```http
 URL: https://gateway.jjm-manufacturing.com/core2/update-raw-material-status
+METHOD: POST
+```
+
+##### Update Status Finish Product
+```http
+URL: https://gateway.jjm-manufacturing.com/core2/update-status-fp
 METHOD: POST
 ```
