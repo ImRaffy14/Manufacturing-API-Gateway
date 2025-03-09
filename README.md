@@ -120,6 +120,12 @@ URL: https://gateway.jjm-manufacturing.com/logistic2/purchase-order-update
 METHOD: POST
 ```
 
+##### Transfer Products
+```http
+URL: https://gateway.jjm-manufacturing.com/logistic2/transfer-products
+METHOD: POST
+```
+
 ##### -----------------------------------------------------------------------------------------------------------
 #### LOGISTIC 1 SERVICE
 ##### Request Raw Material
