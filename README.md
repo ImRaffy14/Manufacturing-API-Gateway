@@ -186,3 +186,9 @@ METHOD: POST
 URL: https://gateway.jjm-manufacturing.com/core2/update-raw-material-status
 METHOD: POST
 ```
+
+##### Update Status Finish Product
+```http
+URL: https://gateway.jjm-manufacturing.com/core2/update-status-fp
+METHOD: POST
+```
