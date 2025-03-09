@@ -85,7 +85,7 @@ const authenticateGatewayRequest = (req, res, next) => {
 // RATE LIMITER
 const limiter = rateLimit({
     windowMs: 1 * 60 * 1000,
-    max: 10,
+    max: 30,
     handler: (req, res) => {
         let ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
 

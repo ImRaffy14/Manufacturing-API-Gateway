@@ -17,7 +17,7 @@ const sendRawMaterials = async (req, res) => {
         const response = await axios.post(`${process.env.CORE2_SERVICE_URL}/api/auditLogistic1`, req.body, {
             headers: { Authorization: `Bearer ${token}` },
         });
-        console.log(`[${getCurrentDateTime()}] ${server} Requested to Logistic 1 Service (Sent Raw Materials)`);
+        console.log(`[${getCurrentDateTime()}] ${server} Requested to Core 2 Service (Sent Raw Materials)`);
         res.status(response.status).json(response.data);
     } catch (error) {
         res.status(error.response?.status || 500).json({ error: error.message });
@@ -33,7 +33,23 @@ const updateRawMaterialStatus = async (req, res) => {
         const response = await axios.post(`${process.env.CORE2_SERVICE_URL}/api/rawMaterialRequest/update`, req.body, {
             headers: { Authorization: `Bearer ${token}` },
         });
-        console.log(`[${getCurrentDateTime()}] ${server} Requested to Logistic 1 Service (Update Raw Material Status)`);
+        console.log(`[${getCurrentDateTime()}] ${server} Requested to Core 2  Service (Update Raw Material Status)`);
+        res.status(response.status).json(response.data); 
+    } catch (error) {
+        res.status(error.response?.status || 500).json({ error: error.message });
+        console.error(`Error Core 2: Server:${server} ${error.message}`)
+    }
+}
+
+// FINISH PRODUCT UPDATE STATUS
+const updateFinishedProductStatus = async (req, res) => {
+    const server = req.decoded.service
+    try {
+        const token = generateServiceToken(server);
+        const response = await axios.post(`${process.env.CORE2_SERVICE_URL}/finished-product-transfer/updateStatus`, req.body, {
+            headers: { Authorization: `Bearer ${token}` },
+        });
+        console.log(`[${getCurrentDateTime()}] ${server} Requested to Core 2  Service (Update Status of Finish product)`);
         res.status(response.status).json(response.data); 
     } catch (error) {
         res.status(error.response?.status || 500).json({ error: error.message });
@@ -43,5 +59,6 @@ const updateRawMaterialStatus = async (req, res) => {
 
 module.exports = {
     sendRawMaterials,
-    updateRawMaterialStatus
+    updateRawMaterialStatus,
+    updateFinishedProductStatus
 }
