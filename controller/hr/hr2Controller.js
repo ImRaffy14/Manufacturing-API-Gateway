@@ -15,7 +15,7 @@ const getEmployeeRecords = async (req, res) => {
     const server = req.decoded.service
     try {
         const token = generateServiceToken(server);
-        const response = await axios.get(`${process.env.HR2_SERVICE_URL}/api/employees`,{
+        const response = await axios.get(`${process.env.HR2_SERVICE_URL}/api/employeedetails`,{
             headers: { Authorization: `Bearer ${token}` },
         });
         console.log(`[${getCurrentDateTime()}] ${server} Requested to HR 2 Service (Get Employee Records)`);
@@ -31,7 +31,7 @@ const getEmployeeTrainingRecords = async (req, res) => {
     const server = req.decoded.service
     try {
         const token = generateServiceToken(server);
-        const response = await axios.get(`${process.env.HR2_SERVICE_URL}/api/trainings`,{
+        const response = await axios.get(`${process.env.HR2_SERVICE_URL}/api/result`,{
             headers: { Authorization: `Bearer ${token}` },
         });
         console.log(`[${getCurrentDateTime()}] ${server} Requested to HR 2 Service (Get Employee Training Records)`);
